@@ -1,0 +1,166 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<p-toast></p-toast>
+<div class="grid-container">
+    <div>
+        <mat-card class="container">
+            <mat-card-title>
+                <div class="box">
+                    Dashboard<br>
+                    <button type="button" label="Show" pButton pRipple id="new" label="Upload Assignment"
+                        icon="pi pi-plus" class="p-button-rounded p-button-success" (click)="showDialog()"> </button>
+
+                </div><br>
+            </mat-card-title>
+
+            <mat-card-content>
+                <mat-grid-list style="padding: 2px; border: 5px;border-color: blue;" class="container" cols="2"
+                    rowHeight="200px">
+                    <mat-grid-tile style="background-color: rgb(233, 210, 233);">
+                        <div rowspan="1" colspan="1">
+                            <!-- <app-admindata></app-admindata> -->
+                            <div class="value">
+                                <div><img src="assets/5857.jpg" alt="Paris" style="width:150px;border-radius: 50%;">
+                                </div>
+                                <div class="top"> <strong style="font-size: medium;"> Welcome {{userName}}</strong><br>
+                                </div>
+                                <div class="bottom">{{userRoles}}</div>
+                            </div>
+                        </div>
+                    </mat-grid-tile>
+                    <mat-grid-tile>
+                        <div rowspan="1" colspan="1">
+                            <div>
+                                <app-studentdata></app-studentdata>
+                            </div>
+                        </div>
+
+
+                    </mat-grid-tile>
+                </mat-grid-list>
+            </mat-card-content>
+
+        </mat-card>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-4">
+                <h1>Upcoming Classes</h1>
+                <table class="custom-table">
+                    <tr>
+                        <th>Classes</th>
+                        <th>Dates</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                </table>
+            </div>
+
+
+            <div class="col-4">
+                <h1>Missing Assignments</h1>
+                <table class="custom-table">
+                    <thead>
+                        <tr>
+                            <th>Assignment Name</th>
+                            <th>Due Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of assignment">
+                            <td>{{ item.assignmentName }}</td>
+                            <td>{{ item.dueDate | date:'yyyy-MM-dd' }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- <table class="custom-table">
+                    <tr>
+                        <th>Classes</th>
+                        <th>Dates</th>
+                    </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                   
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    
+                </tr></table> -->
+            </div>
+
+            <div class="col-4">
+                <h1>Grades</h1>
+                <table class="custom-table">
+                    <tr>
+                        <th>Classes</th>
+                        <th>Link</th>
+                        <th>Grade</th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<p-dialog header="Upload Assigment" [(visible)]="displayUploadAssignmentDialog" [style]="{width: '55vw'}"
+    [draggable]="false">
+    <div class="card">
+        <div class="field">
+            <input id="Path" type="path" [(ngModel)]="inputFilePath" placeholder="Upload Path" size="100"
+                class="text-base text-color surface-overlay p-2 border-1 
+                             border-solid surface-border border-round appearance-none outline-none focus:border-primary w-full ">
+        </div>
+    </div>
+    <div>
+        <p-dropdown [options]="assignmentSelectList" [virtualScroll]="true" [editable]="true" appendTo="body"
+            [(ngModel)]="selectedUploadAssignment" placeholder="Select Assignment"
+            optionLabel="assignmentName"></p-dropdown>
+    </div>
+    <ng-template pTemplate="footer">
+        <p-button (click)="uploadAssignment()" label="Upload" icon="pi pi-times"
+            styleClass="p-button-rounded p-button-success">
+        </p-button>
+        <p-button (click)="closePopup()" label="Cancel" icon="pi pi-times"
+            styleClass="p-button-rounded p-button-danger">
+        </p-button>
+    </ng-template>
+</p-dialog>
