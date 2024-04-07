@@ -1,10 +1,10 @@
 {
   "/api": {
 
-    "target":"http://localhost:1234",
+    "target":"https://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/",
 
     "pathRewrite": {
-      "^/api": "/lms"
+      "^/api": ""
     },
     "changeOrigin": true
   }
