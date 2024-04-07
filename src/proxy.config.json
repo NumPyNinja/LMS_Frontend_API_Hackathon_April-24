@@ -1,7 +1,7 @@
 {
   "/api": {
 
-    "target":"https://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/",
+    "target":"https://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms",
 
     "pathRewrite": {
       "^/api": ""
