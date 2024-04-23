@@ -10,7 +10,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 
 
 const HOST = "localhost";
-const API_SERVICE_URL = "https://lms-backend-service.herokuapp.com/lms/";
+const API_SERVICE_URL = "https://lms-marchapi-hackathon-a258d2bbd43b.herokuapp.com/lms/";
 
 // Proxy endpoints
 app.use('/api', createProxyMiddleware({
